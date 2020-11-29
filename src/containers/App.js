@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
-import {Person} from './person/Person';
-import styled from 'styled-components';
+import Persons from '../Persons/Persons';
+import Cockpit from '../Cockpit/Cockpit';
 import './App.css';
 
 
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'red': 'green'};
-  color: white;
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
 
-  &:hover {
-    background-color: ${props => props.alt ? 'salmon': 'lightgreen'};
-    color: black;
-  }
-`;
 
 
 class App extends Component {
@@ -53,16 +41,11 @@ class App extends Component {
   }
 
   render() {
-    const persons = this.state.showPersons? (
-    <div>
-      {this.state.persons.map((person, personIndex) => (
-      <Person key={person.id} name={person.name} onClick={() => this.deletePersonHandler(personIndex)} age={person.age} onChange={(event) => {this.nameChangeHandler(event, person.id)}}/>))}
-    </div>) : null;
 
+    const persons = this.state.showPersons ? <Persons clicked={this.deletePersonHandler} persons={this.state.persons} nameChanged={this.nameChangeHandler} /> : null;
     return (
-      <div className="App">
-        <h1>Hi, I'm a React App!</h1>
-        <StyledButton alt={this.state.showPersons ? 1 : 0} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>
+      <div>
+        <Cockpit showPersons={this.state.showPersons} togglePersonsHandler={this.togglePersonsHandler} />
         {persons}
       </div>
     );

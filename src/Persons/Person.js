@@ -14,10 +14,12 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const Person = ({name, age, onClick, onChange}) => {
+const Person = ({name, age, onClick, onChange}) => {
     return (
     <StyledDiv>
         <p onClick={onClick}>My name is {name} and my age is {age}</p>
         <input type="text" value={name} onChange={onChange}/>
     </StyledDiv>)
 }
+
+export default Person;
