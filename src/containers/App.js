@@ -9,6 +9,20 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    console.log('App constructor');
+  }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('App getDerivedStateFromProps');
+    console.log(state, props);
+    return state;
+  }
+
+  componentDidMount(){
+    console.log('App componentDidMount');
+  }
   state = {
     persons: [
       {id: 'a', name: 'Max'    , age: 29},
@@ -41,7 +55,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log('App render');
     const persons = this.state.showPersons ? <Persons clicked={this.deletePersonHandler} persons={this.state.persons} nameChanged={this.nameChangeHandler} /> : null;
     return (
       <div>
