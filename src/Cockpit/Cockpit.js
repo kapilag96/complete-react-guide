@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import './Cockpit.css';
 
@@ -18,11 +18,21 @@ const StyledButton = styled.button`
 `;
 
 
-const Cockpit = (props) => (
-    <div className='Cockpit'>
-      <h1>Person Manager</h1>
-      <StyledButton alt={props.showPersons ? 1 : 0} onClick={props.togglePersonsHandler}>Toggle Persons</StyledButton>
-    </div>);
+const Cockpit = (props) => {
 
+    const toggleBtnRef = useRef(null);
+
+    useEffect(() => {
+      console.log('Running Cockpit effect');
+      toggleBtnRef.current.click();
+    }, []);
+
+    return (
+      <div className='Cockpit'>
+        <h1>Person Manager</h1>
+        <StyledButton ref={toggleBtnRef} alt={props.showPersons ? 1 : 0} onClick={props.togglePersonsHandler}>Toggle Persons</StyledButton>
+      </div>
+    );
+};
 
 export default Cockpit;

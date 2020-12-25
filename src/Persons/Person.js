@@ -17,11 +17,19 @@ const StyledDiv = styled.div`
 
 class Person extends Component{
 
+    componentDidMount(){
+        this.inputElement.focus();
+    }
+
     render(){
         return (
             <StyledDiv>
                 <p onClick={this.props.onClick}>My name is {this.props.name} and my age is {this.props.age}</p>
-                <input type="text" value={this.props.name} onChange={this.props.onChange}/>
+                <input
+                  ref={inpEl => this.inputElement = inpEl}
+                  type="text"
+                  value={this.props.name}
+                  onChange={this.props.onChange}/>
             </StyledDiv>)
     }
 }
