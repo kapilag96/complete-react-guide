@@ -23,12 +23,14 @@ class App extends Component {
   componentDidMount(){
     console.log('App componentDidMount');
   }
+
   state = {
     persons: [
       {id: 'a', name: 'Max'    , age: 29},
       {id: 'b', name: 'Kapil'  , age: 24},
       {id: 'c', name: 'Raphael', age: 32},
-      {id: 'd', name: 'Callum' , age: 15}
+      {id: 'd', name: 'Callum' , age: 15},
+      {id: 'e', name: 'Runan'  , age: 38}
     ],
     showPersons: false
   }

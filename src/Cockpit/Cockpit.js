@@ -20,7 +20,7 @@ const StyledButton = styled.button`
 
 const Cockpit = (props) => (
     <div className='Cockpit'>
-      <h1>Hi, I'm a React App!</h1>
+      <h1>Person Manager</h1>
       <StyledButton alt={props.showPersons ? 1 : 0} onClick={props.togglePersonsHandler}>Toggle Persons</StyledButton>
     </div>);
 
