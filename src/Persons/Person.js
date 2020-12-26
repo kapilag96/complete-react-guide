@@ -20,14 +20,15 @@ class Person extends Component{
 
     componentDidMount(){
         this.inputElement.focus();
+        console.log(this.context.authenticated);
     }
+
+    static contextType = AuthContext;
 
     render(){
         return (
             <StyledDiv>
-                <AuthContext.Consumer>
-                    {context => context.authenticated ? <p>Authenticated!</p>: <p>Please Login!</p>}
-                </AuthContext.Consumer>
+                {this.context.authenticated ? <p>Authenticated!</p>: <p>Please Login!</p>}
                 <p onClick={this.props.onClick}>My name is {this.props.name} and my age is {this.props.age}</p>
                 <input
                   ref={inpEl => this.inputElement = inpEl}
