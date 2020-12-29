@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext, useCallback } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import AuthContext from '../context/auth-context';
 import './Cockpit.css';
